@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM dragoncrafted87/alpine:3.19
+FROM ghcr.io/dragoncrafted87/alpine:3.19
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -13,6 +13,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.schema-version="1.0"
 
 RUN ash <<eot
+    set -e
+
     apk add --no-cache --update \
         nodejs \
 
@@ -26,6 +28,8 @@ ARG UID=1000
 ARG GID=1000
 
 RUN ash <<eot
+    set -e
+
     addgroup \
         --gid "$GID" \
         --system "$USER"
