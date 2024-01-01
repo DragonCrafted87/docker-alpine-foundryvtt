@@ -15,6 +15,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 RUN ash <<eot
     set -e
 
+    apk upgrade
     apk add --no-cache --update \
         nodejs \
 
